@@ -1,9 +1,9 @@
 <?php
 
-
+require_once("config.php");
 
 if(isset($_SESSION['username'])){
-  header('Location:admin/index.php');
+  header('Location:'.base_url.'admin/index.php');
 }
 
 if(isset($_POST['signup'])){
@@ -15,7 +15,7 @@ if(isset($_POST['signup'])){
     while($row = mysqli_fetch_assoc($sql)){
       if(password_verify($_POST['password'],$row['password'])){
         $_SESSION['username'] = $row['username'];
-        header('Location:admin/index.php'); 
+        header('Location:'.base_url.'admin/index.php'); 
       }else{
         exit();
       }               
@@ -51,7 +51,7 @@ if(isset($_POST['signup'])){
     <section class="container-fluid admin-signup-form">
         <div class="container d-flex justify-content-center">
             <div class="from-container">
-              <form action="/" method="post">
+              <form action="" method="post">
                 <div class="form-floating mb-3">
                   <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                   <label for="floatingInput">Email address</label>

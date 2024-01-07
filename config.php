@@ -1,5 +1,7 @@
 <?php
 
+define("base_url","https://graphicsvista.com/");
+
 // Database Configratuion
 define("DB_HOST","localhost");
 define("DB_USER","root");
