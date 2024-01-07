@@ -6,7 +6,7 @@ require_once("config.php");
 
 
 if(isset($_SESSION['username'])){
-  header('Location: '.base_url.'admin/index.phpa');
+  header('Location:'.base_url.'admin/index.php');
 }
 
 if(isset($_POST['signup'])){
@@ -19,7 +19,7 @@ if(isset($_POST['signup'])){
     while($row = mysqli_fetch_assoc($sql)){
       if(password_verify($password,$row['password'])){
         $_SESSION['username'] = $row['email'];
-        header('Location: '.base_url.'admin/index.php'); 
+        header('Location:'.base_url.'admin/index.php'); 
       }else{
         exit();
       }               
