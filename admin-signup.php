@@ -14,7 +14,7 @@ if(isset($_POST['signup'])){
   if(mysqli_num_rows($sql)> 0){
     while($row = mysqli_fetch_assoc($sql)){
       if(password_verify($_POST['password'],$row['password'])){
-        $_SESSION['username'] = $row['username'];
+        $_SESSION['username'] = $row['email'];
         header('Location:'.base_url.'admin/index.php'); 
       }else{
         exit();
