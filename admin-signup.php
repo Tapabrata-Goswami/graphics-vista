@@ -51,7 +51,7 @@ if(isset($_POST['signup'])){
     <section class="container-fluid admin-signup-form">
         <div class="container d-flex justify-content-center">
             <div class="from-container">
-              <form action="/">
+              <form action="/" method="post">
                 <div class="form-floating mb-3">
                   <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                   <label for="floatingInput">Email address</label>
