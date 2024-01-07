@@ -1,6 +1,5 @@
 <?php
 
-
 session_start();
 require_once("../config.php");
 
@@ -9,4 +8,8 @@ if(isset($_SESSION['username'])){
 }else{
     header('Location:'.base_url.'admin-signup.php');
 }
+
+if(isset($_POST['']) && $_POST[''])
+
+
 ?>

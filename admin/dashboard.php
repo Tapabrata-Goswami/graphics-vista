@@ -5,7 +5,7 @@ session_start();
 require_once("../config.php");
 
 if(!isset($_SESSION['username'])){
-    header('Location:'.base_url.'admin-signup');
+    header('Location:'.base_url.'admin-signup.php');
 }
 ?>
 
@@ -64,11 +64,11 @@ if(!isset($_SESSION['username'])){
                                 <div class="products-area-upload mb-3">
                                     <div class="form-group mb-2">
                                       <label for="exampleFormControlInput1">Product Name</label>
-                                      <input type="text" class="form-control" id="exampleFormControlInput1" >
+                                      <input type="text" class="form-control" id="product_name" >
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleFormControlTextarea1">Product Description</label>
-                                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                      <textarea class="form-control" id="product_description" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <h5 class="box-heading">Category</h5>
@@ -104,12 +104,12 @@ if(!isset($_SESSION['username'])){
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">$</span>
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                    <input type="text" id="product_price" class="form-control" aria-label="Amount (to the nearest dollar)">
                                     <div class="input-group-append">
                                       <span class="input-group-text">.00</span>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary">Add Products</button>
+                                <button class="btn btn-primary" id="add-products">Add Products</button>
                             </div>
                             <div class="col-md child">
                                 <h5 class="box-heading">View</h5>
@@ -130,6 +130,11 @@ if(!isset($_SESSION['username'])){
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <!-- ====== Boostrap Js ====== -->
+    <!-- ====== Jquery =======  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- ====== Jquery =======  -->
+    <!-- ==== function js ===== -->
+    <script src="<?php echo base_url; ?>admin/assets/js/script.js"></script>
 </body>
 
 </html>
