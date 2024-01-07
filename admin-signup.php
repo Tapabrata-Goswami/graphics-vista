@@ -1,3 +1,32 @@
+<?php
+
+if(isset($_SESSION['username'])){
+  header('Location:admin/index.php');
+}
+
+if(isset($_POST['signup'])){
+
+  require_once("db_config.php");
+
+  $sql = mysqli_query($conn, "SELECT * FROM tb_admin WHERE username = ".$_POST['email']);
+  if(mysqli_num_rows($sql)> 0){
+    while($row = mysqli_fetch_assoc($sql)){
+      if(password_verify($_POST['password'],$row['password'])){
+        $_SESSION['username'] = $row['username'];
+        header('Location:admin/index.php'); 
+      }else{
+        exit();
+      }               
+    }
+  }
+  mysqli_close($conn);
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,15 +53,15 @@
             <div class="from-container">
               <form action="/">
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                   <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                  <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                   <label for="floatingPassword">Password</label>
                 </div>
                 <div class="form-floating">
-                  <input class="btn btn-primary" type="submit" value="signup">
+                  <input class="btn btn-primary" type="submit" name="signup" value="signup">
                 </div>
               </form>
             </div>
