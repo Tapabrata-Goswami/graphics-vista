@@ -1,4 +1,10 @@
 <?php
 
+session_start();
 
-echo "Hello World";
+if(!isset($_SESSION['username'])){
+    header('Location: '.base_url.'admin-signup.php');
+}
+?>
+
+<a href="logout.php">logout</a>
