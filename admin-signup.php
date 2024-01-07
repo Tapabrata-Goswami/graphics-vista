@@ -10,7 +10,7 @@ if(isset($_POST['signup'])){
 
   require_once("db_config.php");
 
-  $sql = mysqli_query($conn, "SELECT * FROM tb_admin WHERE email = ".$_POST['email']);
+  $sql = mysqli_query($conn, "SELECT * FROM `tb_admin` WHERE `email` = ".$_POST['email']);
   if(mysqli_num_rows($sql)> 0){
     while($row = mysqli_fetch_assoc($sql)){
       if(password_verify($_POST['password'],$row['password'])){
