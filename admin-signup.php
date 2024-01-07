@@ -1,5 +1,7 @@
 <?php
 
+
+
 if(isset($_SESSION['username'])){
   header('Location:admin/index.php');
 }
@@ -46,8 +48,6 @@ if(isset($_POST['signup'])){
     <title>Admin Login</title>
 </head>
 <body>
-
-
     <section class="container-fluid admin-signup-form">
         <div class="container d-flex justify-content-center">
             <div class="from-container">
