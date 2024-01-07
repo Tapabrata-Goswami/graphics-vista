@@ -2,8 +2,9 @@
 
 require_once("config.php");
 
+
 if(isset($_SESSION['username'])){
-  header('Location:'.base_url.'admin/');
+  header('Location: '.base_url.'admin/');
 }
 
 if(isset($_POST['signup'])){
@@ -11,12 +12,12 @@ if(isset($_POST['signup'])){
   require_once("db_config.php");
   $password = $_POST["password"];
 
-  $sql = mysqli_query($conn, "SELECT * FROM `tb_admin` WHERE `email` = ".$_POST['email']);
+  $sql = mysqli_query($conn, "SELECT * FROM `tb_admin` WHERE `email` = '".$_POST['email']."'");
   if(mysqli_num_rows($sql)> 0){
     while($row = mysqli_fetch_assoc($sql)){
       if(password_verify($password,$row['password'])){
         $_SESSION['username'] = $row['email'];
-        header('Location:'.base_url.'admin/'); 
+        header('Location: '.base_url.'admin/'); 
       }else{
         exit();
       }               

@@ -6,6 +6,6 @@ define("base_url","https://graphicsvista.com/");
 define("DB_HOST","localhost");
 define("DB_USER","root");
 define("DB_PASS","tapa7866@A");
-define("DB_NAME","graphics_vista");
+define("DB_NAME","u292506473_graphics_vis");
 
 ?>
