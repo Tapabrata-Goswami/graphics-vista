@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname(__DIR__) ."/config.php");
+require_once("./../config.php");
 session_start();
 
 if(!isset($_SESSION["username"])){
@@ -36,26 +36,53 @@ if(!isset($_SESSION["username"])){
         </div>
         <div class="main-container">
             <div class="products-upload">
-                <form action="./AdminController/Main.php" method="POST" enctype="multipart/form-data">
+                <form id="product-upload-submission" method="post" enctype="multipart/form-data">
                     <div class="input-group">
-                        <input type="text" name="name" placeholder="Product Name">
+                        <input type="text" name="product_name" placeholder="Product Name">
+                        <input type="hidden" name="req_type" value="product-upload-from-submit">
                     </div>
                     <div class="input-group">
-                        <input type="number" name="price" placeholder="Price">
+                        <input type="number" name="product_price" placeholder="Price">
                     </div>
                     <div class="input-group">
-                        <textarea name="description" id="" cols="30" rows="10"></textarea>
+                        <textarea name="product_description" cols="30" rows="10"></textarea>
                     </div>
                     <div class="input-group">
-                        <input type="file" name="image" id="">
+                        <input type="file" name="product_image">
                     </div>
                     <div class="input-group">
-                        <input type="submit" name="upload-product" value="Upload">
+                        <input type="submit" value="Upload">
                     </div>
                 </form>
             </div>
         </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            // Product Upload From Submit
+            $("#product-upload-submission").on("submit",function(e){
+                e.preventDefault();
+                $.ajax({
+                    url:"./AdminController/Main.php",
+                    type:"POST",
+                    data : new FormData(this),
+                    contentType:false,
+                    cache:false,
+                    processData:false,
+                    success:function(data){
+                        // console.log(data);
+                        let msg =JSON.parse(data);
+                        if(msg.status == '200'){
+                            alert(msg.message);
+                            $("#product-upload-submission").trigger("reset");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
