@@ -36,7 +36,23 @@ if(!isset($_SESSION["username"])){
         </div>
         <div class="main-container">
             <div class="products-upload">
-                
+                <form action="./AdminController/Main.php" method="POST" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Product Name">
+                    </div>
+                    <div class="input-group">
+                        <input type="number" name="price" placeholder="Price">
+                    </div>
+                    <div class="input-group">
+                        <textarea name="description" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <input type="file" name="image" id="">
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" name="upload-product" value="Upload">
+                    </div>
+                </form>
             </div>
         </div>
     </section>
