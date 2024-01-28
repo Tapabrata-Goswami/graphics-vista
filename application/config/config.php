@@ -24,10 +24,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // localhost
-// $config['base_url'] = 'http://localhost:8080/';
+$config['base_url'] = 'http://localhost:8080/';
 
 // livehost
-$config['base_url'] = 'https://graphicsvista.com/';
+// $config['base_url'] = 'https://graphicsvista.com/';
 
 /*
 |--------------------------------------------------------------------------
